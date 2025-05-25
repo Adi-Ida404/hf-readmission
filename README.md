@@ -4,16 +4,19 @@
 
 A machine learning-powered web application that predicts **heart failure readmission risk** within 30 days of discharge, helping healthcare providers make informed decisions and improve patient outcomes.
 
-### 🏆 Problem Statement
-Heart failure is a very common ailment leading to fatalities if not
+### 🏆 Problem Statement : 
+Heart failure is a prevalent ailment leading to fatalities if not
 attended to promptly. Even for the patients who get proper treatment, hospital readmissions result in a significant risk of death and a financial burden for patients, their
-families as well as the already overburdened healthcare systems. Prediction of at-risk
+families, as well as the already overburdened healthcare systems. Prediction of at-risk
 patients for readmission allows for targeted interventions that reduce morbidity and
 mortality: Develop a machine learning model with the end objective to predict readmission of
-heart-failure patients within 30-days of discharge from the hospital.
+heart-failure patients within 30 days of discharge from the hospital.
 
 ---
 
+**Deployed project link**: https://hf-readmission.onrender.com
+
+---
 ## ✨ Features
 
 - 🔮 **Dual Prediction System**: 
@@ -25,13 +28,13 @@ heart-failure patients within 30-days of discharge from the hospital.
 
 ---
 
-## 🔍 **Baseline Model : Performance Summary**
+## 🔍 **Baseline Model: Performance Summary**
 
 ### ✅ Strengths:
 
 * **High precision for class 0** (non-positive class): 94% — good at correctly identifying majority class.
 * **Decent recall for class 1** (positive class): 46% — this is a good sign; the model does find some of the minority class.
-* **Feature importances are clear**, and all top features are numeric — gives clear insight for feature engineering.
+* **Feature importance is clear**, and all top features are numeric, which gives clear insight for feature engineering.
 
 ### ⚠️ Weaknesses:
 
