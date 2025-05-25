@@ -8,6 +8,7 @@ from ast import literal_eval
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
+import os
 
 class TfidfWrapper(BaseEstimator, TransformerMixin):
     def __init__(self, **tfidf_kwargs):
