@@ -54,11 +54,10 @@ heart-failure patients within 30 days of discharge from the hospital.
 
 | Metric                   | Value  |
 | ------------------------ | ------ |
-| AUC-PR                   | \~0.12 |
-| F1 threshold             | 0.234  |
-| Minority class recall    | 46%    |
-| Minority class precision | 13%    |
-| Support (class 1)        | 194    |
+| F1 score                 | 68%    |
+| Minority class recall    | 63%    |
+| Minority class precision | 63%    |
+| Support (class 1)        | 334    |
 
 These values suggest that the model is **struggling with the minority class**, which is **common in imbalanced datasets**.
 
@@ -217,7 +216,7 @@ Our dual-model approach provides:
 ## 📞 Contact & Support
 
 For questions, suggestions, or collaboration:
-- **Email**: adityaworks2004@gmail.com
+- **Email**: adityaworks2004@gmail.com 
 - **GitHub**: Adi-Ida404
 - **LinkedIn**: https://www.linkedin.com/in/aditya-rawat-27ab59292/
 
