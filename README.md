@@ -16,7 +16,7 @@ heart-failure patients within 30 days of discharge from the hospital.
 
 **Deployed project link**: https://hf-readmission.onrender.com
 
-**Figma Deisgn link:** https://www.figma.com/design/Vp7zistaSGs37c0Ea14XQ7/ZeroBias?node-id=0-1&t=IC8NPKEahgbZ6DLs-1
+**Figma Presentation link:** https://www.figma.com/design/Vp7zistaSGs37c0Ea14XQ7/ZeroBias?node-id=0-1&t=IC8NPKEahgbZ6DLs-1
 
 **Demo Video link:** https://drive.google.com/drive/folders/1coATZvklLUUBkMYSICcdGmpnMIS1405L?usp=sharing
 
