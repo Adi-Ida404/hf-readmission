@@ -21,6 +21,10 @@ class TfidfWrapper(BaseEstimator, TransformerMixin):
         data = X.fillna('').astype(str).values.ravel()
         return self.tfidf.transform(data)
 
+
+def to_dense(x):
+    return x.toarray()
+
 app = Flask(__name__)
 app.secret_key = 'your-secret-key'  # Needed for session
 
