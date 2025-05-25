@@ -236,8 +236,7 @@
             </div>
         </div>
 
-        <div class="form-content">
-            <form id="predictionForm">
+        <div class="form-content">            <form id="predictionForm" action="/predict" method="post">
                 <!-- Demographics Section -->
                 <div class="section">
                     <h2 class="section-title">Demographics</h2>
@@ -357,9 +356,8 @@
                             <label for="procedure_pairs">Procedure Pairs (JSON format)</label>
                             <textarea id="procedure_pairs" name="procedure_pairs" placeholder='[ [1, 311], [2, 3323] ]' required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="lab_events">Lab Events (JSON format)</label>
-                            <textarea id="lab_events" name="lab_events" placeholder='[ [51279, "4.72", "normal", 6.43] ]' required></textarea>
+                        <div class="form-group">                            <label for="lab_events">Lab Events (comma separated format)</label>
+                            <textarea id="lab_events" name="lab_events" placeholder="51279, 4.72, normal, 6.43, 51275, 334, normal, 5.45" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -376,30 +374,27 @@
             
             <div id="result"></div>
         </div>
-    </div>
-
-    <script>
-        document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+    </div>    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            await predictRisk();
-        });
-        function validateJsonInput() {
+            
+            // Validate procedure pairs JSON
             try {
                 const procedurePairs = JSON.parse(document.getElementById('procedure_pairs').value || '[]');
-                const labEvents = JSON.parse(document.getElementById('lab_events').value || '[]');
                 
                 // Validate structure
-                if (!Array.isArray(procedurePairs) || !Array.isArray(labEvents)) {
-                    throw new Error("Input must be arrays");
+                if (!Array.isArray(procedurePairs)) {
+                    throw new Error("Procedure pairs must be arrays");
                 }
                 
-                return true;
-            } catch (e) {
-                alert(`Invalid JSON format. Example:\n\nProcedure Pairs: [[1,311],[2,3323]]\nLab Events: [[51279,"4.72","normal",6.43]]`);
-                return false;
+                // If validation passes, submit the form
+                this.submit();
+            } catch (error) {
+                alert('Invalid JSON format in procedure pairs. Example: [[1,311],[2,3323]]');
+                return;
             }
-        }
-        
+        });
+
         async function predictRisk() {
             const form = document.getElementById('predictionForm');
             const resultDiv = document.getElementById('result');
@@ -410,42 +405,27 @@
             }
             
             try {
-                // Validate JSON fields
-                JSON.parse(document.getElementById('procedure_pairs').value || '[]');
-                JSON.parse(document.getElementById('lab_events').value || '[]');
-                
                 // Show loading state
                 resultDiv.style.display = 'block';
                 resultDiv.innerHTML = '<p>Processing prediction...</p>';
                 
+                // Create form data and encode special fields                const formData = new FormData(form);
+                
                 const response = await fetch('/predict', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams(new FormData(form))
+                    body: formData
                 });
-                
-                const result = await response.json();
-                
-                if (result.status === "success") {
-                    resultDiv.style.backgroundColor = result.readmission === 'Yes' ? '#ffdddd' : '#ddffdd';
-                    resultDiv.innerHTML = `
-                        <h3>Prediction Result</h3>
-                        <p><strong>${result.message}</strong></p>
-                        ${result.days ? `<p><strong>Expected Readmission Duration:</strong> ${result.days} days</p>` : ''}
-                    `;
+
+                if (response.ok) {
+                    // Replace the current page with the response HTML
+                    document.documentElement.innerHTML = await response.text();
                 } else {
                     resultDiv.style.backgroundColor = '#ffdddd';
-                    resultDiv.innerHTML = `<p class="error">Error: ${result.message}</p>`;
+                    resultDiv.innerHTML = '<p class="error">An error occurred while processing your request</p>';
                 }
             } catch (error) {
                 resultDiv.style.backgroundColor = '#ffdddd';
-                if (error instanceof SyntaxError) {
-                    resultDiv.innerHTML = '<p class="error">Invalid JSON format in procedure pairs or lab events</p>';
-                } else {
-                    resultDiv.innerHTML = `<p class="error">An error occurred: ${error.message}</p>`;
-                }
+                resultDiv.innerHTML = `<p class="error">An error occurred: ${error.message}</p>`;
             }
         }
     </script>
