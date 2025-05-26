@@ -22,6 +22,8 @@ heart-failure patients within 30 days of discharge from the hospital.
 
 **Presentation:** https://www.figma.com/slides/rsPAHMOrk6QzEhwmeAyL2l/Zero-Bias?node-id=1-42&t=TsKkuE3OXrspaO9I-1
 
+**PowerBI file:** https://drive.google.com/file/d/1UPLe8Oo10HTvhCLWUahSimUP1CFWN3Zl/view?usp=drive_link
+
 ---
 ## ✨ Features
 
