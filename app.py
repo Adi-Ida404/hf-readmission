@@ -122,7 +122,7 @@ def predict():
         # Format the message
         message = f"Need of readmission within 30 days: {'Yes' if readmission_pred == 1 else 'No'}"
         if readmission_pred == 1:
-            message += f". Intervene their discharge !______________|Days in readmission: {int(days_pred)}"
+            message += f". Intervene their discharge !_____________| Days in readmission: {int(days_pred)}"
 
         return render_template('result.html',
             patient_data=patient_data,
