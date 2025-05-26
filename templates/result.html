@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   <style>
+  <style>
     :root {
-        --primary: #2c3e50;
-        --primary-dark: #1a252f;
-        --danger: #e74c3c;
-        --success: #27ae60;
-        --warning: #f39c12;
-        --gray-100: #f8f9fa;
-        --gray-200: #ecf0f1;
-        --gray-500: #95a5a6;
-        --gray-700: #34495e;
-        --gray-900: #2c3e50;
+        --primary: #ff85a2;  /* Lighter pink */
+        --primary-dark: #ff6b8b;  /* Slightly darker pink */
+        --danger: #ff6b81;  /* Soft pink-red */
+        --success: #7ed957;  /* Soft green */
+        --warning: #ffb347;  /* Soft orange */
+        --gray-100: #fff9fb;  /* Very light pink-white */
+        --gray-200: #ffecf1;  /* Light pink */
+        --gray-500: #b8b8c5;  /* Medium gray */
+        --gray-700: #6d6d7a;  /* Dark gray */
+        --gray-900: #3d3d4a;  /* Very dark gray */
     }
 
     * {
@@ -38,7 +38,7 @@
         margin: 0 auto;
         background: white;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         overflow: hidden;
     }
 
@@ -62,200 +62,7 @@
         margin-bottom: 30px;
         padding: 24px;
         border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .result-high-risk {
-        background-color: #fdedec;
-        border-left: 4px solid var(--danger);
-    }
-
-    .result-low-risk {
-        background-color: #e8f8f0;
-        border-left: 4px solid var(--success);
-    }
-
-    .result-section h2 {
-        font-size: 1.4rem;
-        margin-bottom: 12px;
-        color: var(--gray-900);
-    }
-
-    .result-message {
-        font-size: 1.2rem;
-        margin: 12px 0;
-        font-weight: 500;
-    }
-
-    .result-days {
-        margin-top: 8px;
-        font-size: 1.1rem;
-    }
-
-    .patient-info {
-        background: var(--gray-200);
-        border-radius: 8px;
-        padding: 25px;
-        margin-top: 30px;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid var(--gray-500);
-        color: var(--gray-900);
-        font-weight: 600;
-    }
-
-    .info-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 15px;
-    }
-
-    .info-item {
-        margin-bottom: 12px;
-    }
-
-    .info-label {
-        font-weight: 500;
-        color: var(--gray-700);
-        font-size: 0.9rem;
-        margin-bottom: 4px;
-    }
-
-    .info-value {
-        color: var(--gray-900);
-        font-weight: 500;
-        padding: 6px 0;
-        word-break: break-word;
-    }
-
-    .info-group {
-        margin-top: 25px;
-    }
-
-    .info-group-title {
-        font-weight: 600;
-        color: var(--gray-700);
-        margin-bottom: 10px;
-        font-size: 1rem;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 12px 28px;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        margin-top: 25px;
-        transition: all 0.2s ease;
-        font-weight: 500;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn:hover {
-        background: var(--primary-dark);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    .badge {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-left: 8px;
-    }
-
-    .badge-danger {
-        background-color: var(--danger);
-        color: white;
-    }
-
-    .badge-success {
-        background-color: var(--success);
-        color: white;
-    }
-
-    @media (max-width: 768px) {
-        .content {
-            padding: 20px;
-        }
-        
-        .header {
-            padding: 20px;
-        }
-        
-        .info-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style><style>
-    :root {
-        --primary: #e83e8c;
-        --primary-dark: #d2337d;
-        --danger: #ff4757;
-        --success: #2ed573;
-        --warning: #ffa502;
-        --gray-100: #fff5f9;
-        --gray-200: #ffe6f0;
-        --gray-500: #a8a8b3;
-        --gray-700: #6d6d7a;
-        --gray-900: #3d3d4a;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background-color: var(--gray-100);
-        padding: 20px;
-        line-height: 1.6;
-        color: var(--gray-900);
-    }
-
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-    }
-
-    .header {
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: white;
-        padding: 24px 30px;
-        text-align: center;
-    }
-
-    .header h1 {
-        font-weight: 600;
-        font-size: 1.8rem;
-    }
-
-    .content {
-        padding: 30px 35px;
-    }
-
-    .result-section {
-        margin-bottom: 30px;
-        padding: 24px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
     .result-high-risk {
@@ -264,7 +71,7 @@
     }
 
     .result-low-risk {
-        background-color: #f0fff4;
+        background-color: #f5fff0;
         border-left: 4px solid var(--success);
     }
 
@@ -296,7 +103,7 @@
         font-size: 1.3rem;
         margin-bottom: 20px;
         padding-bottom: 12px;
-        border-bottom: 1px solid #ffd6e7;
+        border-bottom: 1px solid #ffd6e2;
         color: var(--gray-900);
         font-weight: 600;
     }
@@ -350,13 +157,13 @@
         border: none;
         cursor: pointer;
         font-size: 1rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     }
 
     .btn:hover {
         background: var(--primary-dark);
         transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
     }
 
     .badge {
