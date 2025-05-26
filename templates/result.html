@@ -206,11 +206,11 @@
             <h1>Prediction Results</h1>
         </div>
         <div class="content">
-            <div class="result-section {{ 'result-low-risk' if readmission == 'Yes !! Alert: Intervene their discharge !!' else 'result-high-risk' }}">
+            <div class="result-section {{ 'result-high-risk' if readmission.startswith('Yes') else 'result-low-risk' }}">
                 <h2>Risk Assessment Result</h2>
                 <p class="result-message">
                     <strong>{{ message }}</strong>
-                    <span class="badge {{ 'badge-success' if readmission == 'Yes !! Alert: Intervene their discharge !!' else 'badge-danger' }}">
+                    <span class="badge {{ 'badge-danger' if readmission.startswith('Yes') else 'badge-success' }}">
                         {{ readmission }}
                     </span>
                 </p>
@@ -281,7 +281,7 @@
                 {% endif %}
             </div>
 
-            <a href="/" class="btn">New Prediction</a>
+            <a href="https://zero-bias.onrender.com/patients/new" class="btn">New Prediction</a>
         </div>
     </div>
 </body>
