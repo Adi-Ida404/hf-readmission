@@ -1,6 +1,6 @@
 # 🏥 Heart Failure Readmission Predictor
 
-## 🎯 Hackathon Project Overview
+## 🎯 Project Overview
 
 A machine learning-powered web application that predicts **heart failure readmission risk** within 30 days of discharge, helping healthcare providers make informed decisions and improve patient outcomes.
 
@@ -219,8 +219,14 @@ Our dual-model approach provides:
 
 For questions, suggestions, or collaboration:
 - **Email**: adityaworks2004@gmail.com 
-- **GitHub**: Adi-Ida404
+- **GitHub**: Adi-Ida404 
 - **LinkedIn**: https://www.linkedin.com/in/aditya-rawat-27ab59292/
+
+OR
+
+- **Email**: vipulgupta3104@gmail.com 
+- **GitHub**:  vipulgupta3104
+- **LinkedIn**: https://www.linkedin.com/in/vipul-gupta-a1ab8a273/
 
 ---
 
